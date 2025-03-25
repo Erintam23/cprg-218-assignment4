@@ -17,11 +17,12 @@ fetch(`https://v2.jokeapi.dev/joke/${cate}?safe-mode`)
         }
         document.getElementById("joke-text").innerText = jokeText;
     })
+.catch(error => {
     document.getElementById("joke-text").innerText = "Failed to load joke. Try again!";
     console.error("Error fetching joke:", error);
+} )
 
 /* load a random joke when the page open */
 window.onload = function () {
     fetchJoke ("Any, Joke Of The Day");
-
 }}
